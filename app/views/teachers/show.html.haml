@@ -15,3 +15,4 @@
           = link_to 'Book this slot', lessons_path(slot_id: bookable_slot.slot.id, start_at: bookable_slot.start_at), method: :post
         - else
           = 'BOOKED'
+          = link_to 'Cancel?', lesson_path(bookable_slot.lesson), :confirm => 'Are you sure?', :method => :delete

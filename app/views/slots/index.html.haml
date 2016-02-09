@@ -1,0 +1,11 @@
+= link_to 'New slot', new_slot_path
+
+%h1= 'Your slots'
+%table
+  %tr
+    %th= 'Available from'
+    %th= 'Available to'
+  - @slots.each do |slot|
+    %tr
+      %td= l(slot.start_at)
+      %td= l(slot.stop_at)

@@ -1,0 +1,5 @@
+- validate lesson creation (can lesson actually be created on specific date)
+- display error if two users wants to book a lesson
+- consider caching on slow operations (whenever we use bookable_slot) and delete cache per teacher
+- completely remove check_for_user_change section in application_controller
+- controller based check if user (teacher of student) can delete a lesson

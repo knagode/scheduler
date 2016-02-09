@@ -2,6 +2,7 @@ class Slot < ActiveRecord::Base
   belongs_to :teacher
 
   validate :stop_date_before_start_date
+  before_save :round_off
 
   def stop_date_before_start_date
     if !stop_at.nil? && stop_at <= start_at
@@ -21,5 +22,10 @@ class Slot < ActiveRecord::Base
       next_start_at = bookable_slot.stop_at
     end
     array
+  end
+
+  def round_off
+    self.start_at = start_at.round_off(30.minutes)
+    self.stop_at = stop_at.round_off(30.minutes)
   end
 end

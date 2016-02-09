@@ -9,4 +9,10 @@ RSpec.describe LessonsController, type: :controller do
       }.to change{ Lesson.all.count }
     end
   end
+
+  describe '#destroy' do
+    it 'should delete lesson' do
+      post :destroy, id: lesson
+    end
+  end
 end

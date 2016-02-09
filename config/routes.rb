@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   resources :lessons
   resources :slots
 
+  root to: redirect(path: '/teachers')
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

@@ -31,6 +31,10 @@ module MyLetDeclarations extend RSpec::SharedContext
   let(:student) do
     create(:student)
   end
+
+  let(:lesson) do
+    create(:lesson, start_at: slot.start_at, student: student, slot: slot)
+  end
 end
 
 RSpec.configure do |config|
