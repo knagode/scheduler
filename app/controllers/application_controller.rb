@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def check_for_user_change
     if !current_student && !current_teacher
-      session[:student_id] = Student.first
+      session[:student_id] = Student.first.id
     end
 
     if params.key? :switch_user
