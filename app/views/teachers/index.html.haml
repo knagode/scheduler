@@ -1,0 +1,5 @@
+%h1= 'Teacher list'
+
+%ul
+  - @teachers.each do |teacher|
+    %li= link_to teacher.email, teacher_path(teacher)

@@ -1,0 +1,17 @@
+%h1= "Schedule of #{@teacher.email}"
+
+%table
+  %tr
+    %th= 'Available from'
+    %th= 'Available to'
+    %th= 'Book'
+
+  - @teacher.bookable_slots.each do |bookable_slot|
+    %tr
+      %td= l(bookable_slot.start_at)
+      %td= l(bookable_slot.stop_at)
+      %td
+        - if bookable_slot.free?
+          = link_to 'Book this slot', lessons_path(slot_id: bookable_slot.slot.id, start_at: bookable_slot.start_at), method: :post
+        - else
+          = 'BOOKED'
